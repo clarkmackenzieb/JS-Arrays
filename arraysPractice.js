@@ -5,7 +5,9 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-
+function first(arr){
+  return arr[0];
+}
 
 //Next problem
 
@@ -16,7 +18,9 @@ var arr = [40,50,60];
 
 
   //Code Here
-
+function last(arr){
+  return arr[(arr.length-1)];
+}
 
 //Next Problem
 
@@ -25,6 +29,12 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
+
+  function looper(family){
+    for(var i = 0; i < family.length; i++){
+      alert(family[i]);
+    }
+  }
 
 
 //Next problem
@@ -36,6 +46,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
   //Code Here
 
+  function reversedLooper(letters){
+    for(var i = letters.length-1; i >= 0; i--){
+      alert(letters[i]);
+    }
+  }
 
 //Next Problem
 
@@ -45,7 +60,17 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
   //Code Here
 
+function evenFinder(arr){
 
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i]%2 != 0){
+      arr.splice(i, 1);
+    }
+  }
+
+  return arr;
+
+}
 
 
   
@@ -74,6 +99,23 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
   //Code Here
 
+function divider(arr){
+  var newArr = [];
+  var odds = [];
+  var evens = [];
+
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i]%2 != 0){
+      evens.push(arr[i]);
+    }
+    else{
+      odds.push(arr[i]);
+    }
+  
+  }
+  newArr.push(odds, evens);
+  return newArr;
+}
 
 //Next Problem
 
@@ -87,7 +129,22 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
+function finder(arr){
+  var checky;
+  var findMe = getRandomArbitrary();
 
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] === findMe){
+      checky = true;
+    }
+    else{
+      checky = false;
+    }
+  }
+
+  return checky;
+// this returns a boolean, true/false-- idk why it's not working?
+}
 
 
 
@@ -112,6 +169,26 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+  function removeItem(arr, item){
+    if(arr.includes(item)){
+      arr.splice(arr.indexOf(item), 1);
+      return arr;
+    }
+    else{
+      return arr;
+    }
+  }
+
+  function addItem(arr, item){
+    if(arr.includes(item)){
+      return arr;
+    }
+    else{
+      arr.push(item);
+      return arr;
+    }
+  }
+
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
@@ -125,6 +202,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+  function maker(){
+    var newArr = [];
+    for(i = 1; i <= 215; i++){
+      newArr.push(i);
+    }
+    return newArr;
+  }
 
 
 //Next Problem
@@ -136,7 +220,17 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 
-
+  function addTen(arr){
+    var intMe;
+    var newArr = [];
+        for(var i = 0; i < arr.length; i++){
+          intMe = parseInt(arr[i]);
+          intMe += 10;
+          newArr.push(intMe);
+        }
+        return newArr;
+    
+    }
 
 //Next Problem
 
@@ -156,6 +250,14 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
+   function longer(arr1,arr2){
+     if(arr1.length > arr2.length){
+       return arr1;
+     }
+     else{
+       return arr2;
+     }
+   }
 
 
 /*
@@ -170,6 +272,17 @@ Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 
   //Code Here
 
+  function both(arr1, arr2){
+    var newArr = [];
+    for(var i = 0; i < arr1.length; i++){
+      for(var j = 0; j < arr2.length; j++){
+        if(arr1[i] === arr2[j]){
+          newArr.push(arr2[j])
+        }
+      }
+    }
+    return newArr;
+  }
 
 
 
@@ -210,12 +323,34 @@ sure that it's equal to 4. */
 
   //Code Here
 
+  devMountainEmployees = [{name: 'Tyler',
+  position: 'Lead Instructor/Engineer',
+  spiritAnimal: 'Honey Badger'}, {name: 'Cahlan',
+  position: 'CEO',
+  spiritAnimal: 'butterfly'}, {name: 'Ryan',
+  position: 'Marketing',
+  spiritAnimal: 'fox'},{name: 'Colt',
+  position: 'Everything really',
+  spiritAnimal: 'Young Male Horse'}];
+
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
 
-
+  function byeCahlan(arr){
+    for(var i = 0; i < arr.length; i++){
+      for(var prop in arr){
+        if(arr[i]["name"] === "Cahlan"){
+          arr.splice(i, 1);
+          
+        }
+      }
+    }
+    return arr;
+  }
+    
+  byeCahlan(devMountainEmployees);
 
 
 //NEXT PROBLEM
@@ -227,6 +362,8 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+
+  var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -241,6 +378,18 @@ var user1 = {
 
 //Your Code Here
 
+users = [user1, {
+  name: 'Mackenzie',
+  email: 'blah@ugh.com',
+  password: 'badpw',
+  username: 'uname'
+}, {
+  name: 'Cat',
+  email: 'meowmeow@gmail.com',
+  password: 'fishfish',
+  username: 'acat'
+}]
+
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -250,5 +399,19 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+
+  function deleteUser(arr, email){
+    for(var i = 0; i < arr.length; i++){
+      for(var prop in arr){
+        if(arr[i]["email"] === email){
+          arr.splice(i, 1);
+          
+        }
+      }
+    }
+    return arr;
+  }
+
+  deleteUser(users, "tylermcginnis33@gmail.com");
 
 //The activity we just did is very much how data works in 'the real world'.
